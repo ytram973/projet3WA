@@ -10,9 +10,15 @@ use App\Model\Manager\ArticleManager;
 
 class UserController extends Controller
 {
-    public function userHome(): void
-    {
 
+    /** 
+     * ? methode qui affiche tous article que l'utilisateur a poster/ajouter/add
+     * ? la methode renvoi le template (user/home.php) et les met dans un tableau assositive 
+     * ? ou nous pouront forEache pour afficher les donne de la $data['article']->getId
+     * ? les donner de la BDD grace au findAllPostUser.
+     */
+    public function homeUser(): void
+    {
         $articleManager = new ArticleManager();
         $articles = $articleManager->findAllPostUser();
         $this->renderView('user/home.php', [
@@ -22,16 +28,9 @@ class UserController extends Controller
     }
 
 
-
-
-
-
-
-
-
-    //? connextion de l'utilisateur.
-
-    public function register(): void{
+    //? inscription de l'utilisateur
+    public function register(): void
+    {
         $errors = [];
         if (!empty($_POST)) {
             if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirm_password'])) {
@@ -63,7 +62,7 @@ class UserController extends Controller
                     $user->setPseudo($_POST['pseudo']);
                     $passwordHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
                     $user->setPassword($passwordHash);
-                    
+
                     $manager->add($user);
                     $this->redirectToRoute('user_login');
                 }
@@ -75,7 +74,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function login(): void {
+    //? connexion de l'utilisateur
+    public function login(): void
+    {
         $errors = [];
         if (!empty($_POST)) {
             if (empty($_POST['email']) || empty($_POST['password'])) {
@@ -93,7 +94,7 @@ class UserController extends Controller
             // si aucune erreur, on connecte l'utilisateur
             if (empty($errors)) {
                 Authenticator::login($user->getId());
-                $this->redirectToRoute('user_home');//redirect a la page home de user
+                $this->redirectToRoute('user_home'); //redirect a la page home de user
             }
         }
         $this->renderView('user/login.php', [
@@ -101,8 +102,10 @@ class UserController extends Controller
             'errors' => $errors
         ]);
     }
-
-    public function logout(): void {
+    
+    //? deconnexion de l'utilisateur
+    public function logout(): void
+    {
         Authenticator::logout();
         $this->redirectToRoute('user_login');
     }

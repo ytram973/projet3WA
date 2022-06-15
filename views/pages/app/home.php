@@ -9,7 +9,7 @@
 
 <!-- foreach pour recupperer les dernier articles -->
 
-<?php foreach ($data['articles'] as $article) { ?>
+<?php if(isset($data['articles'])) foreach ($data['articles'] as $article) { ?>
     <ul>
 <!-- ajouter un bouton modifier qui peut modifi seulment l'article que lutilisateur a poster -->
     <?php if ($auth->isAuthenticated() && $article->getUser()->getId() == $auth->getUser()->getId() ) { ?>
