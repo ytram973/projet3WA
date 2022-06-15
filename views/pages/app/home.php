@@ -1,0 +1,25 @@
+<h1>Accueil</h1>
+
+
+<h2>Derniers articles</h2>
+
+<?php if ($auth->isAuthenticated()) { ?>
+    <a href="index.php?page=article_add">ajouter un article</a>
+<?php } ?>
+
+<!-- foreach pour recupperer les dernier articles -->
+
+<?php foreach ($data['articles'] as $article) { ?>
+    <ul>
+<!-- ajouter un bouton modifier qui peut modifi seulment l'article que lutilisateur a poster -->
+    <?php if ($auth->isAuthenticated() && $article->getUser()->getId() == $auth->getUser()->getId() ) { ?>
+        <a href="index.php?page=article_edit&id=<?= $article->getId() ?>">modifier</a>
+    <?php } ?>
+
+        <li><?= $article->getUser()->getPseudo() ?></li>
+        <li><?= $article->getCreatedAt()->format('d/m/Y') ?></li>
+        <li><?= $article->getTitle() ?></li>
+        <li><?= $article->getContent() ?></li>
+    </ul>
+<?php } ?>
+

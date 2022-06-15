@@ -1,0 +1,37 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+background-color: rgb(214, 185, 241);
+display: flex;
+justify-content: space-around;
+padding: 15px 0;
+}
+li{list-style-type: none;}
+
+a{text-decoration: none;}
+
+h1{
+color: rgb(255, 0, 242);
+}
+
+.formAddArticle{
+    display: flex;
+    justify-content: center;
+    
+}
+.formPp{
+color: blueviolet;
+}
+.formInput{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.grid{
+display: grid;
+}
