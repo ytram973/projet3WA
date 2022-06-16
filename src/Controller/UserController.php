@@ -102,11 +102,42 @@ class UserController extends Controller
             'errors' => $errors
         ]);
     }
-    
+
     //? deconnexion de l'utilisateur
     public function logout(): void
     {
         Authenticator::logout();
         $this->redirectToRoute('user_login');
+    }
+
+
+    //todo vérifier si la route est bonne
+    public function edit():void{
+        // var_dump(Authenticator::getUser());
+        if (
+            //! d'ou sort le nom !!!!!!!!
+            isset($_POST['firstname'], $_POST['lastname'],$_POST['pseudo'])
+            && !empty($_POST['firstname'])
+            && !empty($_POST['lastname'])
+            && !empty($_POST['pseudo'])
+            ){
+                $userManager = new UserManager();
+                $user = new User([
+                    'firstname' => $_POST['firstname'],
+                    'lastname' => $_POST['lastname'],
+                    'pseudo' => $_POST['pseudo'],
+                    'id' => $_SESSION['user_id']
+                ]);
+                $userManager->edit($user);
+            }
+            
+            
+        
+        
+        
+        $this->renderView('user/edit.php', [
+            'title' => 'Modifier le profil',
+        ]);
+
     }
 }

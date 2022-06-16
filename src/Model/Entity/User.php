@@ -8,7 +8,7 @@ namespace App\Model\Entity;
 class User {
     private int $id;
     private string $firstname;
-    private string $lastname;
+    private ?string $lastname;
     private string $password;
     private string $email;
     private string $pseudo;
@@ -40,7 +40,7 @@ class User {
         return $this->firstname;
     }
 
-    public function getLastname(): string {
+    public function getLastname(): ?string {
         return $this->lastname;
     }
 

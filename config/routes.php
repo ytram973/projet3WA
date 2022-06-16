@@ -58,7 +58,7 @@ return [
      //? Profil user
     'user_home' => [
       'controller' => App\Controller\UserController::class,
-      'method' => 'homeuser'//! dois-je mettre un 'home' ici ?
+      'method' => 'homeUser'//! dois-je mettre un 'home' ici ?
     ],
      //? Inscription user
     'user_register' => [
@@ -74,6 +74,11 @@ return [
     'user_logout' => [
       'controller' => App\Controller\UserController::class,
       'method' => 'logout'
+    ],
+    //? editer un user
+    'user_edit' => [
+      'controller' => App\Controller\UserController::class,
+      'method' => 'edit'
     ],
 
 

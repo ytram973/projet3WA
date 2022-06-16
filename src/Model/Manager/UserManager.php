@@ -50,4 +50,17 @@ class UserManager extends Manager
 				return new User($user);
     }
     
+    public function edit(User $user):void{
+        $sql = "UPDATE user SET firstname = :firstname,  lastname = :lastname, pseudo = :pseudo WHERE id= :id";
+        $query = $this->connection->prepare($sql);
+
+        $query->execute([
+            'firstname' => $user->getFirstname(),
+            'lastname' => $user->getLastname(),
+            'pseudo' => $user->getPseudo(),
+            //! ici donne a la requete id de user qui est connecter
+            'id' => $user->getId()
+          ]);
+
+    }
 }

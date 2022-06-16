@@ -16,7 +16,7 @@ class Authenticator{
     public function isAuthenticated():bool{
         return isset($_SESSION['user_id']) ? true : false;
     }
-    public function getUser():User{
+    static function getUser():User{
         $userManager = new UserManager();
         return $userManager->find($_SESSION['user_id']);
     }
