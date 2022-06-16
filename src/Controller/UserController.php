@@ -113,7 +113,6 @@ class UserController extends Controller
 
     //todo vérifier si la route est bonne
     public function edit():void{
-        // var_dump(Authenticator::getUser());
         if (
             //! d'ou sort le nom !!!!!!!!
             isset($_POST['firstname'], $_POST['lastname'],$_POST['pseudo'])
@@ -130,7 +129,8 @@ class UserController extends Controller
                 ]);
                 $userManager->edit($user);
             }
-            
+            var_dump($user);
+            var_dump(Authenticator::getUser());
             
         
         
