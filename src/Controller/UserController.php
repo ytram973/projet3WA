@@ -111,7 +111,7 @@ class UserController extends Controller
     }
 
 
-    //todo vérifier si la route est bonne
+    //? modifier les information de l'utilisateur
     public function edit():void{
         if (
             //! d'ou sort le nom !!!!!!!!
@@ -128,12 +128,8 @@ class UserController extends Controller
                     'id' => $_SESSION['user_id']
                 ]);
                 $userManager->edit($user);
+                $this->redirectToRoute('user_home');
             }
-            var_dump($user);
-            var_dump(Authenticator::getUser());
-            
-        
-        
         
         $this->renderView('user/edit.php', [
             'title' => 'Modifier le profil',

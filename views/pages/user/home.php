@@ -1,5 +1,5 @@
 <h1>user home</h1>
-
+<a href="index.php?page=user_edit">modifier le profil</a>
 
 <?php if(isset($data['articles'])) foreach ($data['articles'] as $article) { ?>
     
