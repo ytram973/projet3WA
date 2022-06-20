@@ -20,6 +20,10 @@
         <li><?= $article->getCreatedAt()->format('d/m/Y') ?></li>
         <li><?= $article->getTitle() ?></li>
         <li><?= $article->getContent() ?></li>
+        <ol>
+            <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>">comment</a></li>
+            <li> <a href=""></a> like</li>
+        </ol>
     </a>
     </ul>
 <?php } ?>

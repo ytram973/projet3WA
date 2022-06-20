@@ -34,7 +34,7 @@ class ArticleController extends Controller {
     /**
      * fonction add qui permet d'ajouter un article
      */
-    public function add(): void {
+    public function add(): void { 
         if (isset($_POST) && !empty($_POST)) {
             var_dump($_POST);
             $articleManager = new ArticleManager();

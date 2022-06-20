@@ -10,3 +10,11 @@
 
 <a href="index.php?page=article_delete&id=<?= htmlspecialchars($data['article']->getId()) ?>" class="secondary" role="button">Supprimer</a>
 <?php } ?>
+
+
+
+<?php if(isset($data['article'])) foreach ($data['article']->getComments() as $comment) { ?>
+
+<p> <?= $comment->getText() ?> </p>
+
+<?php } ?>

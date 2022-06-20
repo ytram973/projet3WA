@@ -81,5 +81,13 @@ return [
       'method' => 'edit'
     ],
 
+    /**
+     * ? Route commmentaire
+     */
+
+    'comment_add' => [
+      'controller' => App\Controller\CommentController::class,
+      'method' => 'add'
+    ],
 
 ];

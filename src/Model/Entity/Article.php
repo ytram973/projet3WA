@@ -10,7 +10,7 @@ class Article {
     private User $user;
     private \DateTime $createdAt;
     private \DateTime $updatedAt;
-    private  Comment $comments;
+    private  array $comments;
 
     public function __construct(array $article) {
         if (isset($article['id'])) 
@@ -78,11 +78,11 @@ class Article {
         $this->updatedAt = $updatedAt;
     }
 
-    public function getComments(): Comment {
+    public function getComments(): array {
         return $this->comments;
     }
 
-    public function setComment(Comment $comments): void {
+    public function setComments(array $comments): void {
         $this->comment = $comments;
     }
 

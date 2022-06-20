@@ -20,9 +20,9 @@ class Comment {
         if (isset($comment['created_at'])) 
             $this->createdComment = new \DateTime($comment['created_at']);
         if (isset($comment['user']))
-            $this->idUser =  $comment['user'];
+            $this->user =  $comment['user'];
         if (isset($comment['article']))
-            $this->idArticle =  $comment['article'];
+            $this->article =  $comment['article'];
 
     }
 

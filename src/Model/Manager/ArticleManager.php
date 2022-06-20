@@ -19,9 +19,11 @@ class ArticleManager extends Manager {
         if (!$article || empty($article)) {
             return null;
         }
-        
+        $commentManager = new CommentManager();
         $userManager = new UserManager();
+        
         $article['user'] = $userManager->find($article['id_user']);
+        $article['comments'] = $commentManager->findComments($id);
         
 
         return new Article($article);
@@ -40,7 +42,7 @@ class ArticleManager extends Manager {
           $article['user'] = $userManager->find($article['id_user']);
 						array_push($articlesObjects, new Article($article));
 				}
-
+        // var_dump($article);
 
         return $articlesObjects;
     }
