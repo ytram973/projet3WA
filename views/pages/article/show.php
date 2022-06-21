@@ -17,4 +17,12 @@
 
 <p> <?= $comment->getText() ?> </p>
 
+
+<?php if ($auth->isAuthenticated() && $comment->getUser()->getId() == $auth->getUser()->getId() ) { ?>
+<a href="index.php?page=comment_edit&id=<?= htmlspecialchars($comment->getId()) ?>" role="button">Modifier</a>
+
+<a href="index.php?page=comment_delete&id=<?= htmlspecialchars($comment->getId()) ?>" class="secondary" role="button">Supprimer</a>
+
+<?php } ?>
+
 <?php } ?>

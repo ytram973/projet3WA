@@ -10,9 +10,6 @@ use App\Model\Manager\CommentManager;
 use Projet\Authenticator;
 
 class CommentController extends Controller {
-    
-
-
 
     public function add(): void {
         if (isset($_POST) && !empty($_POST)) {
@@ -36,4 +33,34 @@ class CommentController extends Controller {
             'title' => 'ajouter un comment'
         ]);
     }
+
+    public function edit(): void{
+        if(isset($_GET['id']) && is_numeric($_GET['id'])){
+            $commentManager = new CommentManager();
+            $comment = $commentManager->find($_GET['id']);
+            if(
+               isset($_POST['text'])
+               && !empty($_POST['text']) 
+            ){
+                $commentManager->edit(new Comment($_POST),$_GET['id']);
+                $this->redirectToRoute('article_show',['id'=> $comment->getArticle()->getId()]);
+            }
+            $this->renderView('comment/edit.php',[
+                'title'=> 'edit commentaire',
+                'comment'=> $comment
+            ]);
+        }
+    }
+
+    public function delete():void{
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $commentManager = new CommentManager();
+            $comment = $commentManager->find($_GET['id']);
+            $commentManager->delete($_GET['id']);
+            $this->redirectToRoute('article_show',['id'=> $comment->getArticle()->getId()]);
+        } else {
+            $this->redirectToRoute('app_home');
+        }
+    }
+
 }

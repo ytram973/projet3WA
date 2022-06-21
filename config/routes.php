@@ -90,4 +90,14 @@ return [
       'method' => 'add'
     ],
 
+    'comment_edit' => [
+      'controller' => App\Controller\CommentController::class,
+      'method' => 'edit'
+    ],
+
+    'comment_delete' => [
+      'controller' => App\Controller\CommentController::class,
+      'method' => 'delete'
+    ],
+
 ];
