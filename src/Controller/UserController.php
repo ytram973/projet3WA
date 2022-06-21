@@ -7,6 +7,8 @@ use Projet\Controller;
 use App\Model\Manager\UserManager;
 use App\Model\Entity\User;
 use App\Model\Manager\ArticleManager;
+use App\Model\Entity\Article;
+use App\Model\Entity\Like;
 
 class UserController extends Controller
 {
@@ -17,8 +19,7 @@ class UserController extends Controller
      * ? ou nous pouront forEache pour afficher les donne de la $data['article']->getId
      * ? les donner de la BDD grace au findAllPostUser.
      */
-    public function homeUser(): void
-    {
+    public function homeUser(): void{
         $articleManager = new ArticleManager();
         $articles = $articleManager->findAllPostUser();
         $this->renderView('user/home.php', [
@@ -26,7 +27,6 @@ class UserController extends Controller
             'articles' => $articles
         ]);
     }
-
 
     //? inscription de l'utilisateur
     public function register(): void
@@ -134,6 +134,19 @@ class UserController extends Controller
         $this->renderView('user/edit.php', [
             'title' => 'Modifier le profil',
         ]);
+
+    }
+
+    public function like():void{
+        
+        
+        $userManager = new UserManager();
+        
+        
+        // $article->getId();
+
+        $userManager->like($_GET['id']);
+        $this->redirectToRoute('user_home');// teste pour savoir si la redirection marche
 
     }
 }

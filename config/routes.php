@@ -81,6 +81,11 @@ return [
       'method' => 'edit'
     ],
 
+    'user_like' =>[
+      'controller' => App\Controller\UserController::class,
+      'method' => 'like'
+    ],
+
     /**
      * ? Route commmentaire
      */

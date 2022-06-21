@@ -16,11 +16,11 @@ class Like {
             $this->article = (int) $like['article'];
     }
 
-    public function getuser(): User {
+    public function getUser(): User {
         return $this->user;
     }
 
-    public function getarticle(): Article {
+    public function getArticle(): Article {
         return $this->article;
     }
 }

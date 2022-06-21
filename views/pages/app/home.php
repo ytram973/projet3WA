@@ -25,7 +25,7 @@
         <ol>
         <?php if ($auth->isAuthenticated()) { ?>
             <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>">comment</a></li>
-            <li> <a href=""></a> like</li>
+            <li> <a href="index.php?page=user_like&id=<?= $article->getId() ?>">like</a></li>
             <?php } ?>
         </ol>
     </a>

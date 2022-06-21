@@ -3,7 +3,9 @@
 namespace App\Model\Manager;
 
 use App\Model\Entity\User;
+use Projet\Authenticator;
 use Projet\Manager;
+use App\Model\Entity\Article;
 
 //! le manager permet d'excuter des requêtes SQL
 //! pour l'utilisateur
@@ -15,7 +17,6 @@ class UserManager extends Manager
    public function add(User $user): void {
        $sql = 'INSERT INTO user (pseudo, email, password, created_at) VALUES (:pseudo, :email, :password, :created_at)';
        $query = $this->connection->prepare($sql);
-       var_dump('merde');
        $query->execute([
         'pseudo' => $user->getPseudo(),
         'email' => $user->getEmail(),
@@ -62,5 +63,15 @@ class UserManager extends Manager
             'id' => $user->getId()
           ]);
 
+    }
+    
+    public function like(Article $article):void{
+        $auth = new Authenticator();
+        $sql = "INSERT INTO user_like_article (id_user,id_article) VALUES (:id_user,:id_article)";
+        $query = $this->connection->prepare($sql);
+        $query->execute([
+        'id_user' => $auth->getUser()->getId(),
+        'id_article' => $article->getId()
+        ]);
     }
 }
