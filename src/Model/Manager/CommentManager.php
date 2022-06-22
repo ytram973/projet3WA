@@ -86,11 +86,6 @@ class CommentManager extends Manager
 
 
 
-
-
-
-
-
     public function add(Comment $comment): void
     {
         $sql = 'INSERT INTO comment (text, created_at, id_user, id_article) VALUES (:text, :created_at, :id_user, :id_article)';

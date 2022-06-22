@@ -74,4 +74,24 @@ class UserManager extends Manager
         'id_article' => $article->getId()
         ]);
     }
+
+    public function dislike(Article $article):void{
+        $auth = new Authenticator();
+        $sql = "DELETE FROM user_like_article WHERE id_user=:id_user AND id_article = :id_article";
+        $query = $this->connection->prepare($sql);
+        $query->execute([
+        'id_user' => $auth->getUser()->getId(),
+        'id_article' => $article->getId()
+        ]);
+    }
+    public function checkLike(Article $article){
+        $auth = new Authenticator();
+        $sql = "SELECT COUNT(*) FROM user_like_article WHERE id_user = :id_user AND id_article = :id_article";
+        $query = $this->connection->prepare($sql);
+        $query->execute([
+        'id_user' => $auth->getUser()->getId(),
+        'id_article' => $article->getId()
+        ]);
+        return $query->fetch();
+    }
 }

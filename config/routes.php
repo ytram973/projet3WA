@@ -85,6 +85,10 @@ return [
       'controller' => App\Controller\UserController::class,
       'method' => 'like'
     ],
+    'user_dislike' =>[
+      'controller' => App\Controller\UserController::class,
+      'method' => 'dislike'
+    ],
 
     /**
      * ? Route commmentaire

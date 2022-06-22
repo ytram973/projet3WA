@@ -139,14 +139,25 @@ class UserController extends Controller
 
     public function like():void{
         
+        $article = new ArticleManager();
         
         $userManager = new UserManager();
         
-        
-        // $article->getId();
 
-        $userManager->like($_GET['id']);
+        $userManager->like($article->find($_GET['id']));
         $this->redirectToRoute('user_home');// teste pour savoir si la redirection marche
+
+    }
+
+    public function dislike():void{
+        
+        $article = new ArticleManager();
+        
+        $userManager = new UserManager();
+        
+
+        $userManager->dislike($article->find($_GET['id']));
+        $this->redirectToRoute('user_home');// 
 
     }
 }

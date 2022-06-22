@@ -27,7 +27,7 @@ class CommentController extends Controller {
             
 
             $commentManager->add($comment);
-            $this->redirectToRoute('app_home');
+            $this->redirectToRoute('article_show',['id'=> $comment->getArticle()->getId()]);
         }
         $this->renderView('comment/add.php', [
             'title' => 'ajouter un comment'
