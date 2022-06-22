@@ -10,7 +10,8 @@ class Article {
     private User $user;
     private \DateTime $createdAt;
     private \DateTime $updatedAt;
-    private  array $comments;
+    private array $comments;
+    private bool $isLiked;
 
     public function __construct(array $article) {
         if (isset($article['id'])) 
@@ -84,6 +85,22 @@ class Article {
 
     public function setComments(array $comments): void {
         $this->comment = $comments;
+    }
+
+    /**
+     * Get the value of `isLiked`
+     * @return bool
+     */
+    public function getIsLiked(): bool {
+        return $this->isLiked;
+    }
+
+    /**
+     * Set the value of `isLiked`
+     * @param bool $isLiked The value to set
+     */
+    public function setIsLiked(bool $isLiked): void {
+        $this->isLiked = $isLiked;
     }
 
 }

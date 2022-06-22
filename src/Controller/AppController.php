@@ -14,19 +14,15 @@ class AppController extends Controller {
         $userManager = new UserManager();
         $articleManager = new ArticleManager();
         $articles = $articleManager->findAll();    
+        
         foreach ($articles as $article ) {
-            
             $isLiked = $userManager->checkLike($article);
-            var_dump($isLiked);
-            array_push($articles = $isLiked);
+            $article->setIsLiked($isLiked);
         }
-        //! test
-        var_dump($articles);
         
         $this->renderView('app/home.php', [
             'title' => 'Accueil',
             'articles' => $articles,
-            
         ]);
     }
 

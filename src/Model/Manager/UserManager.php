@@ -42,8 +42,8 @@ class UserManager extends Manager
     public function find(int $id): ?User {
         $sql = 'SELECT * FROM user WHERE user.id = :id';
         $query = $this->connection->prepare($sql);
-        $query ->bindValue(':id', $id, \PDO::PARAM_INT);
-        $query ->execute();
+        $query->bindValue(':id', $id, \PDO::PARAM_INT);
+        $query->execute();
         $user = $query->fetch();
         if (!$user || empty($user)) {
             return null;
@@ -84,6 +84,8 @@ class UserManager extends Manager
         'id_article' => $article->getId()
         ]);
     }
+    
+    // fonction qui permet de savoir si un utilisateur a liker un article, renvoie vrai si il a liker l'article
     public function checkLike(Article $article){
         $auth = new Authenticator();
         $sql = "SELECT COUNT(*) FROM user_like_article WHERE id_user = :id_user AND id_article = :id_article";
@@ -92,6 +94,14 @@ class UserManager extends Manager
         'id_user' => $auth->getUser()->getId(),
         'id_article' => $article->getId()
         ]);
-        return $query->fetch();
+
+        $result = $query->fetchColumn();
+
+        if($result == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

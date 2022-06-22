@@ -22,20 +22,17 @@
             <li><?= $article->getContent() ?></li>
 
 
-            <ol>
+            <ul>
                 <?php if ($auth->isAuthenticated()) { ?>
                     <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>">comment</a></li>
-                    
-                    <?php if ($isLiked == 0) { ?>
-                        <li> <a href="index.php?page=user_like&id=<?= $article->getId() ?>">like</a></li>
-                        
-                        <?php if ($isLiked == 1 ) { ?>
-                            <li> <a href="index.php?page=user_dislike&id=<?= $article->getId() ?>">dislike</a></li>
-                        <?php } ?>
+                    <?php if (!$article->getIsLiked()) { ?>
+                        <li><a href="index.php?page=user_like&id=<?= $article->getId() ?>">like</a></li>
                     <?php } ?>
-
+                    <?php if ($article->getIsLiked()) { ?>
+                        <li><a href="index.php?page=user_dislike&id=<?= $article->getId() ?>">dislike</a></li>
+                    <?php } ?>
                 <?php } ?>
-            </ol>
+            </ul>
         </a>
     </ul>
 <?php } ?>
