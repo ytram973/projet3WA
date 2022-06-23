@@ -21,14 +21,13 @@
             <li><?= $article->getTitle() ?></li>
             <li><?= $article->getContent() ?></li>
 
-
+<!-- problem de d'affichage  -->
             <ul>
                 <?php if ($auth->isAuthenticated()) { ?>
                     <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>">comment</a></li>
                     <?php if (!$article->getIsLiked()) { ?>
                         <li><a href="index.php?page=user_like&id=<?= $article->getId() ?>">like</a></li>
-                    <?php } ?>
-                    <?php if ($article->getIsLiked()) { ?>
+                    <?php }else{ ?>
                         <li><a href="index.php?page=user_dislike&id=<?= $article->getId() ?>">dislike</a></li>
                     <?php } ?>
                 <?php } ?>

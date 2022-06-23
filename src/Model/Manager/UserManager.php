@@ -97,11 +97,11 @@ class UserManager extends Manager
 
         $result = $query->fetchColumn();
 
-        if($result == 1){
-            return true;
+        if($result == 0){
+            return false;
         }
         else{
-            return false;
+            return true;
         }
     }
 }

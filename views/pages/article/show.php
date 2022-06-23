@@ -1,7 +1,7 @@
 <h1><?= htmlspecialchars($data['article']->getTitle()) ?></h1>
 
 <p>Publié le <?= htmlspecialchars($data['article']->getCreatedAt()->format('d-m-Y')) ?></p>
-<p><?= htmlspecialchars($data['article']->getUser()->getPseudo()) ?></p>
+<p>Poster par <?= htmlspecialchars($data['article']->getUser()->getPseudo()) ?></p>
 
 <p><?= htmlspecialchars($data['article']->getContent()) ?></p>
 
@@ -14,7 +14,7 @@
 
 
 <?php if(isset($data['article'])) foreach ($data['article']->getComments() as $comment) { ?>
-
+<p> publié par <?= $comment->getUser()->getPseudo() ?></p>
 <p> <?= $comment->getText() ?> </p>
 
 

@@ -145,7 +145,7 @@ class UserController extends Controller
         
 
         $userManager->like($article->find($_GET['id']));
-        $this->redirectToRoute('user_home');// teste pour savoir si la redirection marche
+        $this->redirectToRoute('app_home');// teste pour savoir si la redirection marche
 
     }
 
@@ -157,7 +157,7 @@ class UserController extends Controller
         
 
         $userManager->dislike($article->find($_GET['id']));
-        $this->redirectToRoute('user_home');// 
+        $this->redirectToRoute('app_home');// 
 
     }
 }
