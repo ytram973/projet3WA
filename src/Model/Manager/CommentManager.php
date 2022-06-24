@@ -16,7 +16,7 @@ class CommentManager extends Manager
 
 
 
-    public function findComments(int $idArticle): ?array
+    public function findComments(int $idArticle): array
     {
         $sql = 'SELECT * FROM comment WHERE comment.id_article = :idArticle';
         $query = $this->connection->prepare($sql);
@@ -24,7 +24,7 @@ class CommentManager extends Manager
         $query->execute();
         $comments = $query->fetchAll();
         if (!$comments || empty($comments)) {
-            return null;
+            return [];
         }
 
         $commentObjects = [];
