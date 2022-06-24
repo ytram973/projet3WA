@@ -58,7 +58,7 @@ return [
      //? Profil user
     'user_home' => [
       'controller' => App\Controller\UserController::class,
-      'method' => 'homeUser'//! dois-je mettre un 'home' ici ?
+      'method' => 'userHome'//! dois-je mettre un 'home' ici ?
     ],
      //? Inscription user
     'user_register' => [

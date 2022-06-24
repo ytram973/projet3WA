@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use Projet\Controller;
 use App\Model\Entity\Article;
-use App\Model\Entity\User;
 use App\Model\Manager\ArticleManager;
 use Projet\Authenticator;
 
 class ArticleController extends Controller {
 
+    //! check si a garder
     public function list(): void {
         $articleManager = new ArticleManager();
         $articles = $articleManager->findAll();
@@ -19,6 +19,11 @@ class ArticleController extends Controller {
         ]);
     }
 
+    /**
+     * fonction show qui permet d'afficher les articles
+     *
+     * @return void
+     */
     public function show(): void {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             $articleManager = new ArticleManager();
@@ -31,8 +36,10 @@ class ArticleController extends Controller {
             $this->redirectToRoute('app_home');
         }
     }
+        
     /**
      * fonction add qui permet d'ajouter un article
+     * @return void
      */
     public function add(): void { 
         if (isset($_POST) && !empty($_POST)) {
@@ -51,8 +58,10 @@ class ArticleController extends Controller {
             'title' => 'Ajouter un article'
         ]);
     }
+   
     /**
      * fonction edit qui permet de modifier un article dans la base de données
+     * @return void
      */
     public function edit(): void {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -74,10 +83,11 @@ class ArticleController extends Controller {
             $this->redirectToRoute('app_show', ['id' => $_GET['id']]);
         }
     }
-
-
+        
     /**
      * fonction qui supprime un article en fonction de l'id passé en paramètre dans l'url
+     * 
+     * @return void
      */
     public function delete(): void {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -88,5 +98,4 @@ class ArticleController extends Controller {
             $this->redirectToRoute('app_show', ['id' => $_GET['id']]);
         }
     }
-    
 }

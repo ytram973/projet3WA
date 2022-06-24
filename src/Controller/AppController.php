@@ -10,20 +10,29 @@ use Projet\Authenticator;
 
 class AppController extends Controller {
 
+    
+    /**
+     * home affiche tous les articles dans la page d'accueil
+     * @return void
+     */
     public function home(): void {
-    //foreach sur $articles pour faire un checklike
+
         $auth = new Authenticator();
         $userManager = new UserManager();
         $articleManager = new ArticleManager();
-        $articles = $articleManager->findAll();    
-        
+
+        //? récupère tous les articles
+        $articles = $articleManager->findAll();
+
+        //? vérifie si l'article a bien était liker par l'utilisateur connecter
         if ($auth->isAuthenticated()) {
 
             foreach ($articles as $article ) {
                 $isLiked = $userManager->checkLike($article);
+                $nbmLike = $userManager->nbmLike($article);
                 $article->setIsLiked($isLiked);
+                $article->setNbmLike($nbmLike); 
             }
-            
         }
         
         $this->renderView('app/home.php', [

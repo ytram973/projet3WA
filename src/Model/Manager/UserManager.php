@@ -10,8 +10,7 @@ use App\Model\Entity\Article;
 //! le manager permet d'excuter des requêtes SQL
 //! pour l'utilisateur
 
-class UserManager extends Manager
-{
+class UserManager extends Manager{
    //? la fonction add permet d'ajouter un utilisateur dans la base de données
 
    public function add(User $user): void {
@@ -25,7 +24,6 @@ class UserManager extends Manager
         ]);
 }
     //? la fonction findByEmail permet de trouver un utilisateur par son email
-
     public function findByEmail(string $email): ?User {
         $sql = 'SELECT * FROM user WHERE email = :email';
         $query = $this->connection->prepare($sql);
@@ -37,8 +35,8 @@ class UserManager extends Manager
         }
         return new User($user);
     }
-    //? la focntion find permet de trouver un utilisateur par son id
 
+    //? la focntion find permet de trouver un utilisateur par son id
     public function find(int $id): ?User {
         $sql = 'SELECT * FROM user WHERE user.id = :id';
         $query = $this->connection->prepare($sql);
@@ -104,4 +102,16 @@ class UserManager extends Manager
             return true;
         }
     }
+
+        public function nbmLike(Article $article){
+            $sql = "SELECT COUNT(id_article) FROM user_like_article WHERE id_article = :id_article";
+            $query = $this->connection->prepare($sql);
+            $query->execute([
+                'id_article' => $article->getId()
+            ]);
+            $result = $query->fetchColumn();
+            
+            return $result;
+        }
+
 }

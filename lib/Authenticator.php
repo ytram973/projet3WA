@@ -5,6 +5,8 @@ namespace Projet;
 use App\Model\Entity\User;
 use App\Model\Manager\UserManager;
 
+
+/**Class d'authentification */
 class Authenticator{
 
     static public function startSession():void{

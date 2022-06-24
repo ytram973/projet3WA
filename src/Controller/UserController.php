@@ -10,8 +10,7 @@ use App\Model\Manager\ArticleManager;
 use App\Model\Entity\Article;
 use App\Model\Entity\Like;
 
-class UserController extends Controller
-{
+class UserController extends Controller{
 
     /** 
      * ? methode qui affiche tous article que l'utilisateur a poster/ajouter/add
@@ -19,7 +18,7 @@ class UserController extends Controller
      * ? ou nous pouront forEache pour afficher les donne de la $data['article']->getId
      * ? les donner de la BDD grace au findAllPostUser.
      */
-    public function homeUser(): void{
+    public function userHome(): void{
         $articleManager = new ArticleManager();
         $articles = $articleManager->findAllPostUser();
         $this->renderView('user/home.php', [
@@ -28,9 +27,12 @@ class UserController extends Controller
         ]);
     }
 
-    //? inscription de l'utilisateur
-    public function register(): void
-    {
+       
+    /**
+     * inscription de l'utilisateur 
+     * @return void
+     */
+    public function register(): void{
         $errors = [];
         if (!empty($_POST)) {
             if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirm_password'])) {
@@ -74,9 +76,12 @@ class UserController extends Controller
         ]);
     }
 
-    //? connexion de l'utilisateur
-    public function login(): void
-    {
+        
+    /**
+     * connexion de l'utilisateur
+     * @return void
+     */
+    public function login(): void{
         $errors = [];
         if (!empty($_POST)) {
             if (empty($_POST['email']) || empty($_POST['password'])) {
@@ -103,15 +108,22 @@ class UserController extends Controller
         ]);
     }
 
-    //? deconnexion de l'utilisateur
-    public function logout(): void
-    {
+       
+    /**
+     * deconnexion de l'utilisateur 
+     * @return void
+     */
+    public function logout(): void{
         Authenticator::logout();
         $this->redirectToRoute('user_login');
     }
 
 
-    //? modifier les information de l'utilisateur
+    /**
+     * modifier les information de l'utilisateurt
+     *
+     * @return void
+     */
     public function edit():void{
         if (
             //! d'ou sort le nom !!!!!!!!
@@ -136,7 +148,12 @@ class UserController extends Controller
         ]);
 
     }
-
+    
+    /**
+     * like un article
+     *
+     * @return void
+     */
     public function like():void{
         
         $article = new ArticleManager();
@@ -148,7 +165,12 @@ class UserController extends Controller
         $this->redirectToRoute('app_home');// teste pour savoir si la redirection marche
 
     }
-
+    
+    /**
+     * dislike un article
+     *
+     * @return void
+     */
     public function dislike():void{
         
         $article = new ArticleManager();

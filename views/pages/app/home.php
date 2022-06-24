@@ -20,7 +20,7 @@
             <li><?= $article->getCreatedAt()->format('d/m/Y') ?></li>
             <li><?= $article->getTitle() ?></li>
             <li><?= $article->getContent() ?></li>
-
+            <li><?= $article->getNbmLike() ?></li>
 <!-- problem de d'affichage  -->
             <ul>
                 <?php if ($auth->isAuthenticated()) { ?>

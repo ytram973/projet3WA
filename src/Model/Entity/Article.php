@@ -12,6 +12,7 @@ class Article {
     private \DateTime $updatedAt;
     private array $comments;
     private bool $isLiked;
+    private int $nbmLike;
 
     public function __construct(array $article) {
         if (isset($article['id'])) 
@@ -103,4 +104,13 @@ class Article {
         $this->isLiked = $isLiked;
     }
 
+
+    public function getNbmLike():int{
+        return $this->nbmLike;
+    }
+
+    public function setNbmLike(int $nbmLike):void{
+        $this->nbmLike = $nbmLike;
+
+    }
 }
