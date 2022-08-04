@@ -1,8 +1,6 @@
 <header>
     <nav>
         <li><a href="index.php?page=app_home">Home</a>
-        <li><a href="index.php?page=app_contact">contact</a></li>
-        <li><a href="index.php?page=app_privacy_policy">politique de confidentialité</a></li>
         <?php if (!$auth->isAuthenticated()) { ?>
         <li><a href="index.php?page=user_login">Connexion</a></li>
         <li><a href="index.php?page=user_register">Inscription</a></li>
