@@ -1,10 +1,13 @@
-<form action="" method="POST">
-	<div class="formAddArticle">
-		<div class="formPp"><p>PP</p></div>
-		<div class="formInput">
+<form id="form" action="" method="POST">
+	
+		<div>
+			<label for="title">Choisissez un titre pour votre poste :</label>
 			<input type="text" name="title" id="title" placeholder="Titre">
-			<textarea name="content" name="content" id="content" placeholder="Contenu"></textarea>
-			<input type="submit" value="Ajouter">
+
+			<label for="title">Que voulez-vous partager ?</label>
+			<textarea name="content" name="content" id="content" placeholder="Contenu" rows="8"></textarea>
+
+			<button type="submit" value="Ajouter">Ajouter</button>
 		</div>
-	</div>
+	
 </form>

@@ -12,7 +12,10 @@
     --gap-lg: 3rem;
 
     --shadow:rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    --main-color:purple;
 }
+
 
 
 nav {
@@ -33,6 +36,7 @@ li {
 }
 
 a {
+    color: #000000;
     text-decoration: none;
 }
 
@@ -41,27 +45,20 @@ h1 {
 }
 
 
-.formAddArticle {
-    display: flex;
-    justify-content: center;
-
-}
-
-.formPp {
-    color: blueviolet;
-}
-
-.formInput {
-    display: flex;
-    flex-direction: column;
-
-}
 
 .grid {
     display: grid;
 }
 
-
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
 
 /*****************************/
 /* Home                      */
@@ -85,7 +82,6 @@ h1 {
 }
 
 
-
 #articles article {
     padding: 1rem;
     box-shadow: var(--shadow);
@@ -106,3 +102,66 @@ h1 {
 
 }
 
+
+
+
+
+/*****************************/
+/* User                      */
+/*****************************/
+
+
+/*****************************/
+/* inscription                      */
+/*****************************/
+.container {
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#form input[type="text"],
+#form input[type="pseudo"],
+#form input[type="email"],
+#form textarea,
+#form input[type="password"] {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  background: #FFF;
+  margin: 0 0 1rem;
+  padding: 10px;
+  
+}
+
+
+
+#form button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: var(--main-color);
+    color: #FFF;
+    margin: 0 0 5px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+
+  .comments {
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .comment p{
+    padding: 1rem;
+    
+  }
+
+  li.comment{
+    padding: var(--gap-md);
+    box-shadow: var(--shadow);
+    
+  }
+  

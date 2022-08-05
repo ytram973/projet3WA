@@ -1,9 +1,10 @@
-<h1>commentaire</h1>
+<h1 class="text-center">Commentaire</h1>
 
-<form action="" method="POST">
+<form id="form" action="" method="POST">
 
-<textarea name="text" id="text" placeholder="Commenter"></textarea>
-<input type="submit" value="valider">
+<textarea name="text" id="text" placeholder="Commenter" rows="8"></textarea>
+
+<button type="submit" value="valider">valider</button>
 
 
 </form>

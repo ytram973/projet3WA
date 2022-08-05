@@ -1,4 +1,4 @@
-<h1>Le blog</h1>
+<h1 class="text-center">Le blog</h1>
 <?php foreach ($data['articles'] as $article) { ?>
   <article>
     <h3><?= htmlspecialchars($article->getTitle()) ?></h3>

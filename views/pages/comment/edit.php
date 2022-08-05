@@ -1,8 +1,6 @@
-<h1>mofication commentaire</h1>
+<h1 class="text-center">Mofication commentaire</h1>
 
-<form action="" method="POST">
-    <textarea name="text" id="">
-        <?= htmlspecialchars($data['comment']->getText()) ?>
-    </textarea>
-    <input type="submit" value="valider">
+<form id="form" action="" method="POST">
+    <textarea name="text" id="" rows="8"><?= htmlspecialchars($data['comment']->getText()) ?></textarea>
+    <button type="submit" value="valider">valider</button>
 </form>

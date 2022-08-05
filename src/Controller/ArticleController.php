@@ -49,7 +49,6 @@ class ArticleController extends Controller {
             $UserCo = new Authenticator();
             
             $article->setUser($UserCo->getUser());
-            var_dump($article);
 
             $articleManager->add($article);
             $this->redirectToRoute('app_home');
