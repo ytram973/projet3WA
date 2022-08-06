@@ -1,6 +1,6 @@
-<h1 class="text-center">Commentaire</h1>
+<h1 class="text-center pad-bot">Commentaire</h1>
 
-<form id="form" action="" method="POST">
+<form id="form"  method="POST">
 
 <textarea name="text" id="text" placeholder="Commenter" rows="8"></textarea>
 

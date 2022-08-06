@@ -43,11 +43,11 @@ class ArticleController extends Controller {
      */
     public function add(): void { 
         if (isset($_POST) && !empty($_POST)) {
-            var_dump($_POST);
+           
             $articleManager = new ArticleManager();
-            $article = new Article($_POST);
+            $article = new Article( $_POST);
             $UserCo = new Authenticator();
-            
+           
             $article->setUser($UserCo->getUser());
 
             $articleManager->add($article);
@@ -92,7 +92,7 @@ class ArticleController extends Controller {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             $articleManager = new ArticleManager();
             $articleManager->delete($_GET['id']);
-            $this->redirectToRoute('article_list');
+            $this->redirectToRoute('user_home');
         } else {
             $this->redirectToRoute('app_show', ['id' => $_GET['id']]);
         }

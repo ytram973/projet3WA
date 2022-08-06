@@ -1,11 +1,11 @@
-<h1 class="text-center">ACCUEIL</h1>
+<h1 class="text-center pad-bot">ACCUEIL</h1>
 
 
-<h2 class="text-center">Les Derniers articles publié</h2>
+<h2 class="text-center pad-bot">Les Derniers articles publiés</h2>
 
 <?php if ($auth->isAuthenticated()) { ?>
 
-    <p class="text-right"><a href="index.php?page=article_add">Ajouter un article</a></p>
+    <p class="text-right pad-bot">Ajouter un article <a href="index.php?page=article_add"><i class="fa-solid fa-plus"></i></a></p>
 <?php } ?>
 
 <!-- foreach pour recupperer les dernier articles -->
@@ -21,7 +21,7 @@
                             <time class="created-at" datetime="<?= $article->getCreatedAt()->format('Y-m-d') ?>"><?= $article->getCreatedAt()->format('d/m/Y') ?></time>
                             <!-- ajouter un bouton modifier qui peut modifier seulment l'article que lutilisateur a poster -->
                             <?php if ($auth->isAuthenticated() && $article->getUser()->getId() == $auth->getUser()->getId()) { ?>
-                                <a href="index.php?page=article_edit&id=<?= $article->getId() ?>">modifier</a>
+                                <a href="index.php?page=article_edit&id=<?= $article->getId() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             <?php } ?>
                         </div>
                         <h3>
@@ -34,13 +34,13 @@
 
                     <?php if ($auth->isAuthenticated()) { ?>
                         <ul class="columns buttons">
-                            <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>">📩</a></li>
+                            <li><a href="index.php?page=comment_add&id=<?= $article->getId() ?>"><i class="fa-solid fa-message icon-msg"></i></a></li>
                             <?php if (!$article->getIsLiked()) { ?>
-                                <span><?= $article->getNbmLike() ?></span>
-                                <li><a href="index.php?page=user_like&id=<?= $article->getId() ?>">❤️</a></li>
+                                <li><span><?= $article->getNbmLike() ?></span></li>
+                                <li><a href="index.php?page=user_like&id=<?= $article->getId() ?>"><i class="fa-solid fa-heart heart-color"></i></a></li>
                             <?php } else { ?>
-                                <span><?= $article->getNbmLike() ?></span>
-                                <li><a href="index.php?page=user_dislike&id=<?= $article->getId() ?>">💔</a></li>
+                                <li><span><?= $article->getNbmLike() ?></span></li>                              
+                                <li><a href="index.php?page=user_dislike&id=<?= $article->getId() ?>"><i class="fa-solid fa-heart-crack heart-color"></i></a></li>
                             <?php } ?>
                         </ul>
                     <?php } ?>

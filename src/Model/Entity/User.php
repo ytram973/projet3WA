@@ -33,27 +33,27 @@ class User {
 
 
     public function getId(): int {
-        return $this->id;
+        return htmlspecialchars($this->id);
     }
 
     public function getFirstname(): string {
-        return $this->firstname;
+        return htmlspecialchars($this->firstname);
     }
 
     public function getLastname(): ?string {
-        return $this->lastname;
+        return htmlspecialchars($this->lastname);
     }
 
     public function getPassword(): string {
-        return $this->password;
+        return htmlspecialchars($this->password);
     }
 
     public function getEmail(): string {
-        return $this->email;
+        return htmlspecialchars($this->email);
     }
 
     public function getPseudo(): string {
-        return $this->pseudo;
+        return htmlspecialchars($this->pseudo);
     }
 
     public function getCreatedAt(): \DateTime {

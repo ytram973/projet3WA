@@ -27,11 +27,11 @@ class Comment {
     }
 
     public function getId(): int {
-        return $this->id;
+        return htmlspecialchars($this->id);
     }
     
     public function getText(): string {
-        return $this->text;
+        return htmlspecialchars($this->text);
     }
 
     public function getCreatedComment(): \DateTime {

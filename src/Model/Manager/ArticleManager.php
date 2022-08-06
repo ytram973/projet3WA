@@ -98,8 +98,8 @@ class ArticleManager extends Manager {
     $sql = 'INSERT INTO articles (title, content, created_at, id_user) VALUES (:title,  :content, :created_at, :id_user)';
     $query = $this->connection->prepare($sql);
     $query->execute([
-      'title' => $article->getTitle(),
-      'content' => $article->getContent(),
+      'title' => htmlspecialchars($article->getTitle()),
+      'content' =>  $article->getContent(),
       'created_at' => date_format(new \DateTime('NOW'), 'Y-m-d H:i:s'),
       'id_user' => $article->getUser()->getId()
 

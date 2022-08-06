@@ -1,7 +1,7 @@
 <h1 class="text-center">Connexion</h1>
 
 <!-- Si le formulaire a été envoyé -->
-<form id="form" action="" method="POST">
+<form id="form" method="POST">
     <?php include '_errors.php' ?>
 
     <label for="email">Email</label>

@@ -32,7 +32,7 @@ class Article {
     }
 
     public function getId(): int {
-        return $this->id;
+        return htmlspecialchars($this->id);
     }
 
     public function setId(int $id): void {
@@ -40,16 +40,16 @@ class Article {
     }
 
     public function getTitle(): string {
-        return $this->title;
+        return htmlspecialchars($this->title);
     }
 
     public function setTitle(string $title): void {
-        $this->title = $title;
+       $this->title = $title;
     }
 
 
     public function getContent(): string {
-        return $this->content;
+        return htmlspecialchars($this->content);
     }
 
     public function setContent(string $content): void {
@@ -93,7 +93,7 @@ class Article {
      * @return bool
      */
     public function getIsLiked(): bool {
-        return $this->isLiked;
+        return htmlspecialchars($this->isLiked);
     }
 
     /**
@@ -106,7 +106,7 @@ class Article {
 
 
     public function getNbmLike():int{
-        return $this->nbmLike;
+        return htmlspecialchars($this->nbmLike);
     }
 
     public function setNbmLike(int $nbmLike):void{

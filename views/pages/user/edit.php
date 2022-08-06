@@ -1,20 +1,25 @@
-<h1 class="text-center">edit profil</h1>
+<h1 class="text-center">Modifier le profil</h1>
 
-<form  id="form" action="" method="POST">
-
-
-
-<label for="pseudo">Nom d’utilisateur</label>
-<input type="text" name="pseudo" id="" value="<?= $auth->getUser()->getPseudo();?>">
+<form id="form" method="POST">
 
 
-<label for="firstname">Prénom</label>
-<input type="text" name="firstname" id="" value="<?= $auth->getUser()->getFirstname();?>">
+    <div>
+        <label for="pseudo">Nom d’utilisateur</label>
+        <input type="text" name="pseudo" id="pseudo" value="<?= $auth->getUser()->getPseudo(); ?>">
+    </div>
 
-<label for="lastname">Nom</label>
-<input type="text" name="lastname"  id="" value="<?= $auth->getUser()->getLastname();?>">
+    <div>
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname" value="<?= $auth->getUser()->getFirstname(); ?>">
+    </div>
 
-<button type="submit" value="valider">valider</button>
+    <div>
+        <label for="lastname">Nom</label>
+        <input type="text" name="lastname" id="lastname" value="<?= $auth->getUser()->getLastname(); ?>">
+
+    </div>
+
+    <button type="submit" value="valider">valider</button>
 
 
 </form>

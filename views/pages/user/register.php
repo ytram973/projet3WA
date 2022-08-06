@@ -1,11 +1,11 @@
 <div>
   <h1 class="text-center">Inscription</h1>
 
-  <form id="form" action="" method="POST">
+  <form id="form" method="POST">
     <?php include '_errors.php' ?>
 
     <label for="pseudo">Pseudo :</label>
-    <input type="pseudo" name="pseudo" id="pseudo">
+    <input type="text" name="pseudo" id="pseudo">
 
     <label for="email">Adresse email :</label>
     <input type="email" name="email" id="email" required>
