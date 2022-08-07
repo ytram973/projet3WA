@@ -9,7 +9,7 @@
 
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
-
-    <button type="submit">Se connecter</button>
-
+    <div class="text-center">
+        <button type="submit">Se connecter</button>
+    </div>
 </form>

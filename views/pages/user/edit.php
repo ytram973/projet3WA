@@ -18,8 +18,8 @@
         <input type="text" name="lastname" id="lastname" value="<?= $auth->getUser()->getLastname(); ?>">
 
     </div>
-
-    <button type="submit" value="valider">valider</button>
-
+    <div class="text-center">
+        <button type="submit" value="valider">valider</button>
+    </div>
 
 </form>

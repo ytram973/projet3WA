@@ -40,7 +40,7 @@ class Article {
     }
 
     public function getTitle(): string {
-        return htmlspecialchars($this->title);
+        return strip_tags($this->title);
     }
 
     public function setTitle(string $title): void {
@@ -49,7 +49,7 @@ class Article {
 
 
     public function getContent(): string {
-        return htmlspecialchars($this->content);
+        return strip_tags($this->content);
     }
 
     public function setContent(string $content): void {

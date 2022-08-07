@@ -31,7 +31,7 @@ class Comment {
     }
     
     public function getText(): string {
-        return htmlspecialchars($this->text);
+        return strip_tags($this->text);
     }
 
     public function getCreatedComment(): \DateTime {

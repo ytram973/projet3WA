@@ -4,8 +4,10 @@
 <h2 class="text-center pad-bot">Les Derniers articles publiés</h2>
 
 <?php if ($auth->isAuthenticated()) { ?>
-
-    <p class="text-right pad-bot">Ajouter un article <a href="index.php?page=article_add"><i class="fa-solid fa-plus"></i></a></p>
+    <div class="flex-space-b">
+    <p><a href="index.php?page=app_game">LE MORPION <i class="fa-solid fa-x"></i> <i class="fa-solid fa-o"></i></a> </p>
+    <p class="pad-bot"><a href="index.php?page=article_add">AJOUTER UN ARTICLE <i class="fa-solid fa-plus"></i></a></p>
+    </div>
 <?php } ?>
 
 <!-- foreach pour recupperer les dernier articles -->

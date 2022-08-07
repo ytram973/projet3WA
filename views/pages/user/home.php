@@ -1,10 +1,10 @@
 <h1 class="text-center pad-bot"><?= $auth->getUser()->getPseudo() ?></h1>
 
-    
-    
-   
-<p class="text-right pad-bot"><a href="index.php?page=user_edit">modifier le profil</a></p>
 
+
+<div class="flex-end">
+    <p class="pad-bot"><a href="index.php?page=user_edit">MODIFIER LE PROFIL</a></p>
+</div>
 <ul id="articles" class="stack articles">
     <?php if (isset($data['articles'])) foreach ($data['articles'] as $article) { ?>
         <li>

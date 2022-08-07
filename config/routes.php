@@ -11,9 +11,9 @@ return [
       'method' => 'home'
     ],
     //todo route a vérifier l'utiliter
-    'app_contact' => [
+    'app_game' => [
       'controller' => App\Controller\AppController::class,
-      'method' => 'contact'
+      'method' => 'game'
     ],
     //todo route a vérifier l'utiliter
     'app_privacy_policy' => [

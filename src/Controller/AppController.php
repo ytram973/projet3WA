@@ -43,10 +43,10 @@ class AppController extends Controller
         ]);
     }
 
-    public function contact(): void
+    public function game(): void
     {
-        $this->renderView('app/contact.php', [
-            'title' => 'Contact'
+        $this->renderView('app/game.php', [
+            'title' => 'Le morpion'
         ]);
     }
 

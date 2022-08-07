@@ -5,6 +5,7 @@
         <label for="textarea">Modifier votre commentaire</label>
         <textarea name="text" id="textarea" rows="8"><?= htmlspecialchars($data['comment']->getText()) ?></textarea>
     </div>
-
-    <button type="submit" value="valider">valider</button>
+    <div class="text-center">
+        <button type="submit" value="valider">valider</button>
+    </div>
 </form>
